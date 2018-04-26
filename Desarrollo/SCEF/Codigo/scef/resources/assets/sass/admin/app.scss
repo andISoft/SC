@@ -1,0 +1,18 @@
+// Fonts
+@font-face {
+  font-family: 'ProductSans';
+  src: url('/fonts/product-sans/ProductSansRegular.ttf');
+}
+
+@font-face {
+  font-family: 'ProductSansBold';
+  src: url('/fonts/product-sans/ProductSansBold.ttf');
+}
+
+// Variables
+@import "../custom_variables";
+
+// UIkit
+@import "node_modules/uikit/src/scss/variables-theme.scss";
+@import "node_modules/uikit/src/scss/mixins-theme.scss";
+@import "node_modules/uikit/src/scss/uikit-theme.scss";
