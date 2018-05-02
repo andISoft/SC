@@ -1,18 +1,12 @@
 <template>
   <div class="">
-    <div class="">
-      Before Home
-    </div>
-    <Header></Header>
-    <div class="">
-      After Home
+    <div class="uk-margin">
+      {{ prod.name }}
     </div>
   </div>
 </template>
 
 <script>
-  import Header from './Header'
-
   export default {
     data () {
       return {
@@ -29,7 +23,7 @@
 
     },
     components: {
-      Header
+
     }
   }
 </script>

@@ -4,5 +4,7 @@
     "/css/site/app.css": "/css/site/app.css",
     "/css/site/pages/home.css": "/css/site/pages/home.css",
     "/js/site/app.js": "/js/site/app.js",
+    "/js/site/pages/shop.js": "/js/site/pages/shop.js",
+    "/js/site/pages/partials.js": "/js/site/pages/partials.js",
     "/js/site/pages/home.js": "/js/site/pages/home.js"
 }

@@ -15,10 +15,11 @@
 Auth::routes();
 
 Route::group([
+  'prefix' => 'api',
   'namespace' => 'Api',
 ], function () {
   // Route::resource('clients', 'ClientController');
-  // Route::resource('products', 'ProductController');
+  Route::resource('products', 'ProductController');
   // Route::resource('categories', 'CategoryController');
 });
 
@@ -45,9 +46,15 @@ Route::group([
   'namespace' => 'Site',
 ], function() {
   Route::get('/', 'HomeController@index')->name('home');
+  Route::get('login', function() {
+    return view('site.auth.login');
+  });
+  Route::get('registrar', 'AuthController@index')->name('site.register');
   // Route::get('contactanos', function () {
   //   return view('site.contactanos.index');
   // });
-  // Route::get('shop', 'ShopController@index');
-  // Route::resource('producto','ProductController');
+  Route::get('shop', function() {
+    return view('site.shop.index');
+  });
+  Route::resource('producto','ProductController');
 });

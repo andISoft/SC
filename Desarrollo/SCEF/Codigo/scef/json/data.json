@@ -1,0 +1,129 @@
+{
+  "roles": [
+    {
+      "name": "Admin"
+    },
+    {
+      "name": "Client"
+    }
+  ],
+  "users": [
+    {
+      "first_name": "Admin",
+      "last_name": "UNMSM",
+      "email": "admin@unmsm.edu.pe",
+      "telephone": "987654321",
+      "password": "password",
+      "role_id": 1
+    },
+    {
+      "first_name": "Cliente 01",
+      "last_name": "UNMSM",
+      "email": "cliente01@unmsm.edu.pe",
+      "telephone": "987654321",
+      "password": "password",
+      "role_id": 2
+    },
+    {
+      "first_name": "Cliente 02",
+      "last_name": "UNMSM",
+      "email": "cliente02@unmsm.edu.pe",
+      "telephone": "987654321",
+      "password": "password",
+      "role_id": 2
+    }
+  ],
+  "admins": [
+    {
+      "user_id": 1
+    }
+  ],
+  "clients": [
+    {
+      "user_id": 2
+    },
+    {
+      "user_id": 3
+    }
+  ],
+  "products": [
+    {
+      "slug": "producto01",
+      "name": "Producto 01",
+      "description": "Esta es una descripción del producto 01",
+      "price": 80
+    },
+    {
+      "slug": "producto02",
+      "name": "Producto 02",
+      "description": "Esta es una descripción del producto 02",
+      "price": 100
+    },
+    {
+      "slug": "producto03",
+      "name": "Producto 03",
+      "description": "Esta es una descripción del producto 03",
+      "price": 120
+    },
+    {
+      "slug": "producto04",
+      "name": "Producto 04",
+      "description": "Esta es una descripción del producto 04",
+      "price": 80
+    },
+    {
+      "slug": "producto05",
+      "name": "Producto 05",
+      "description": "Esta es una descripción del producto 05",
+      "price": 100
+    },
+    {
+      "slug": "producto05",
+      "name": "Producto 05",
+      "description": "Esta es una descripción del producto 05",
+      "price": 120
+    },
+    {
+      "slug": "producto06",
+      "name": "Producto 06",
+      "description": "Esta es una descripción del producto 06",
+      "price": 80
+    },
+    {
+      "slug": "producto07",
+      "name": "Producto 07",
+      "description": "Esta es una descripción del producto 07",
+      "price": 100
+    },
+    {
+      "slug": "producto08",
+      "name": "Producto 08",
+      "description": "Esta es una descripción del producto 08",
+      "price": 120
+    },
+    {
+      "slug": "producto09",
+      "name": "Producto 09",
+      "description": "Esta es una descripción del producto 09",
+      "price": 120
+    },
+    {
+      "slug": "producto10",
+      "name": "Producto 10",
+      "description": "Esta es una descripción del producto 10",
+      "price": 80
+    },
+    {
+      "slug": "producto11",
+      "name": "Producto 11",
+      "description": "Esta es una descripción del producto 11",
+      "price": 100
+    },
+    {
+      "slug": "producto12",
+      "name": "Producto 12",
+      "description": "Esta es una descripción del producto 12",
+      "price": 120
+    }
+  ]
+}

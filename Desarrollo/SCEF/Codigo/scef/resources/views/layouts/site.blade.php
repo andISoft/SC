@@ -10,7 +10,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta property="og:type" content="website" />
 
-  <link rel="shortcut icon" href="/img/favicon.ico">
+  {{-- <link rel="shortcut icon" href="/img/favicon.ico"> --}}
 
   <title>{{ config('app.name', 'ChaguaFarma') }}</title>
 
@@ -28,7 +28,7 @@
     @yield('content')
   </div>
   <div class="">
-    @include('site.partials.footer')
+    {{-- @include('site.partials.footer') --}}
   </div>
 
   <!-- Scripts -->
