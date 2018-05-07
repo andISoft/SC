@@ -3,7 +3,7 @@
     <div class="uk-section">
       <div class="uk-container">
         <div class="">
-          <Product :prod="prod"></Product>
+          <Product :product="prod"></Product>
         </div>
       </div>
     </div>

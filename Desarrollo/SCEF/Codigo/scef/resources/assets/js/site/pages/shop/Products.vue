@@ -1,23 +1,23 @@
 <template>
   <div class="">
     <div class="uk-margin">
-      <div class="uk-child-width-1-3" uk-grid>
+      <div class="uk-child-width-1-3 uk-grid-small" uk-grid>
         <div v-for="prod in items" class="">
           <div class="">
             <div class="uk-card uk-card-default uk-card-small uk-card-body">
               <div class="">
-                <a :href="'/producto/'+prod.id">
+                <a class="uk-link-reset" :href="'/product/'+prod.id">
                   <h3 class="uk-card-title">{{ prod.name }}</h3>
                 </a>
               </div>
-              <p>
-                <div class="">
-                  <img src="https://placeimg.com/250/250" alt="">
+              <div>
+                <div class="uk-margin">
+                  <img src="https://placeimg.com/250/150" alt="">
                 </div>
-                <div class="">
+                <div class="uk-margin">
                   {{ prod.description }}
                 </div>
-              </p>
+              </div>
             </div>
           </div>
         </div>

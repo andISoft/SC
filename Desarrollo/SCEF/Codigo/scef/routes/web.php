@@ -56,5 +56,6 @@ Route::group([
   Route::get('shop', function() {
     return view('site.shop.index');
   });
-  Route::resource('producto','ProductController');
+  Route::resource('product','ProductController');
+  Route::resource('cart','CartController');
 });

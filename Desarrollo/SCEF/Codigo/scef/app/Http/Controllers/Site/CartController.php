@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Product;
+use \Cart as Cart;
 
-class ProductController extends Controller
+class CartController extends Controller
 {
   /**
   * Display a listing of the resource.
@@ -15,7 +17,12 @@ class ProductController extends Controller
   */
   public function index()
   {
-    //
+    $products = Cart::content();
+    dd($products);
+
+    return response()->json($products);
+
+    return view('view.cart.index', compact('cart'));
   }
 
   /**
@@ -36,7 +43,40 @@ class ProductController extends Controller
   */
   public function store(Request $request)
   {
-    //
+    $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
+      return $cartItem->id === $request['id'];
+    });
+
+    if (!$duplicates->isEmpty()) {
+      return response()->json([
+        'success' => false,
+        'message' => 'Producto en el carrito'
+      ]);
+    }
+
+    try {
+      Cart::add([
+        'id' => $request->id,
+        'qty' => $request->qty,
+        'name' => $request->name,
+        'price' => $request->price,
+        'options' => [
+          'slug' => $request->slug,
+          'image' => $request->image,
+        ]
+      ])->associate('App\Product');
+      return response()->json([
+        'success' => true,
+        'message' => 'Agregado correctamente'
+      ]);
+    } catch (Exception $e) {
+      return response()->json([
+        'success' => false,
+        'message' => 'No se pudo agregar'
+      ]);
+    }
+
+
   }
 
   /**
@@ -47,8 +87,7 @@ class ProductController extends Controller
   */
   public function show($id)
   {
-    $item = Product::find($id);
-    return view('site.product.show', compact('item'));
+    //
   }
 
   /**
