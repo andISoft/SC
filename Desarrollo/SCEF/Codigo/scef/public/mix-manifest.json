@@ -7,5 +7,6 @@
     "/js/site/pages/product.js": "/js/site/pages/product.js",
     "/js/site/pages/shop.js": "/js/site/pages/shop.js",
     "/js/site/pages/partials.js": "/js/site/pages/partials.js",
-    "/js/site/pages/home.js": "/js/site/pages/home.js"
+    "/js/site/pages/home.js": "/js/site/pages/home.js",
+    "/js/site/pages/cart.js": "/js/site/pages/cart.js"
 }

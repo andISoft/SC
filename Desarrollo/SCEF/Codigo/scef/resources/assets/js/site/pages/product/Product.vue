@@ -29,48 +29,47 @@
 </template>
 
 <script>
-  export default {
-    props: ['product'],
-    data () {
-      return {
-
-      }
-    },
-    mounted () {
-
-    },
-    methods: {
-      async addToCart () {
-        axios.post('/cart', this.product)
-        .then(response => {
-          if (response.success) {
-            UIkit.notification({
-              message: response.message,
-              status: 'success',
-              pos: 'bottom-center',
-              timeout: 3000
-            })
-          } else {
-            UIkit.notification({
-              message: response.message,
-              status: 'danger',
-              pos: 'bottom-center',
-              timeout: 3000
-            })
-          }
-        })
-        .catch(error => {
-
-        })
-      }
-    },
-    computed: {
-
-    },
-    components: {
-
+export default {
+  props: ['product'],
+  data () {
+    return {
     }
+  },
+  mounted () {
+  },
+  methods: {
+    async addToCart () {
+      /* var axios */
+      axios.post('/cart', this.product)
+      .then(response => {
+        if (response.success) {
+          UIkit.notification({
+            message: response.message,
+            status: 'success',
+            pos: 'bottom-center',
+            timeout: 3000
+          })
+        } else {
+          UIkit.notification({
+            message: response.message,
+            status: 'danger',
+            pos: 'bottom-center',
+            timeout: 3000
+          })
+        }
+      })
+      .catch(error => {
+
+      })
+    }
+  },
+  computed: {
+
+  },
+  components: {
+
   }
+}
 </script>
 
 <style lang="scss">

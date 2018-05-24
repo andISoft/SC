@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\Product;
-use \Cart as Cart;
+use Illuminate\Support\Facades\DB;
+use Mail;
 
-class CartController extends Controller
+class CheckoutController extends Controller
 {
   /**
   * Display a listing of the resource.
@@ -17,11 +16,7 @@ class CartController extends Controller
   */
   public function index()
   {
-    $articles = collect();
-    $articles['items'] = Cart::content();
-    $articles['subtotal'] = (int)Cart::subtotal();
-    $articles['total'] = (int)Cart::total();
-    return view('site.cart.index', compact('articles'));
+    //
   }
 
   /**
@@ -40,42 +35,48 @@ class CartController extends Controller
   * @param  \Illuminate\Http\Request  $request
   * @return \Illuminate\Http\Response
   */
-  public function store(Request $request)
+  public function store()
   {
-    $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
-      return $cartItem->id === $request['id'];
-    });
+    return response()->json([
+      'success' => true,
+      'message' => 'Holis'
+    ]);
 
-    if (!$duplicates->isEmpty()) {
-      return response()->json([
-        'success' => false,
-        'message' => 'Producto en el carrito'
-      ]);
-    }
+    $SECRET_KEY = env('CULQI_SK');
 
+    $culqi = new Culqi(array('api_key' => $SECRET_KEY));
+
+    // Creando Cargo a una tarjeta
     try {
-      Cart::add([
-        'id' => $request->id,
-        'qty' => $request->qty,
-        'name' => $request->name,
-        'price' => $request->price,
-        'options' => [
-          'slug' => $request->slug,
-          'image' => $request->image,
-        ]
-      ])->associate('App\Product');
+      $charge = $culqi->Charges->create(
+        array(
+          "amount" => $request->reserve['subtotal'],
+          "currency_code" => "USD",
+          "description" => "Venta en ChaguaFarma",
+          "email" => 'jorge@prodequa.com',
+          "antifraud_details" => array(
+            "address" => 'Mi casa',
+            "address_city" => 'Lima',
+            "country_code" => 'PE',
+            "first_name" => 'Jorge',
+            "last_name" => 'De la Cruz',
+            "phone_number" => '987654321'
+          ),
+          "source_id" => $request['source_id']
+          // "installments" => $request->installments,
+        )
+      );
+      Cart::destroy();
       return response()->json([
         'success' => true,
-        'message' => 'Agregado correctamente'
+        'message' => 'Pago exitoso'
       ]);
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
       return response()->json([
         'success' => false,
-        'message' => 'No se pudo agregar'
+        'message' => 'El pago no fue efectuado'
       ]);
     }
-
-
   }
 
   /**
