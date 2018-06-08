@@ -29,7 +29,7 @@ Route::group([
   'namespace' => 'Admin',
   'roles' => ['admin']
 ], function () {
-  Route::get('/', 'HomeController@index')->name('admin');
+  // Route::get('/', 'HomeController@index')->name('admin');
   // Route::resource('users', 'UserController');
   // Route::resource('coupons', 'CouponController');
   // Route::resource('categories', 'CategoryController');
@@ -57,4 +57,6 @@ Route::group([
     return view('site.shop.index');
   });
   Route::resource('producto','ProductController');
+  Route::resource('cart','CartController');
+  Route::resource('checkout','CheckoutController');
 });

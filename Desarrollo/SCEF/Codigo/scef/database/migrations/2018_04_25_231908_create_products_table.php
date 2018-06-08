@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
       $table->string('name', 90);
       $table->text('description')->nullable();
       $table->integer('status')->default(1);
+      $table->integer('qty')->default(100);
       $table->string('image', 200)->nullable();
       $table->decimal('price', 10, 2)->nullable();
       $table->decimal('promo', 10, 2)->nullable();
