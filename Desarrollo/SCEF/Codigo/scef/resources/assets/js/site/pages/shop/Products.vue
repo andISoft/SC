@@ -1,23 +1,20 @@
 <template>
   <div class="">
     <div class="uk-margin">
-      <div class="uk-child-width-1-3" uk-grid>
+      <div class="uk-child-width-1-3 uk-grid-small" uk-grid>
         <div v-for="prod in items" class="">
-          <div class="">
-            <div class="uk-card uk-card-default uk-card-small uk-card-body">
-              <div class="">
-                <a :href="'/producto/'+prod.id">
-                  <h3 class="uk-card-title">{{ prod.name }}</h3>
-                </a>
+          <div class="uk-card uk-card-default">
+            <div>
+              <div class="uk-card uk-card-default">
+                <div class="uk-card-media-top">
+                  <img class="uk-width-1-1" src="https://placeimg.com/250/250" alt="">
+                </div>
+                <div class="uk-padding-small">
+                  <a :href="'/producto/'+prod.id" class="uk-text-center uk-link-reset">
+                    <h3 class="uk-margin-remove uk-text-uppercase">{{ prod.name }}</h3>
+                  </a>
+                </div>
               </div>
-              <p>
-                <div class="">
-                  <img src="https://placeimg.com/250/250" alt="">
-                </div>
-                <div class="">
-                  {{ prod.description }}
-                </div>
-              </p>
             </div>
           </div>
         </div>
@@ -50,9 +47,6 @@
       this.readProducts()
     },
     methods: {
-      readProducts () {
-
-      },
       readProducts () {
         axios.get('/api/products?page='+this.currentPage)
         .then(response => {

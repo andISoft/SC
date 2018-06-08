@@ -1,13 +1,13 @@
 <template>
   <div class="">
-    <div class="uk-section">
+    <div class="uk-section uk-background-primary uk-light">
       <div class="uk-container">
         <div class="">
           <Product :prod="prod"></Product>
         </div>
       </div>
     </div>
-    <div class="uk-section">
+    <div class="uk-section uk-background-secondary uk-light">
       <div class="uk-container">
         <div class="">
           <Related></Related>

@@ -5,8 +5,8 @@
         <div class="uk-navbar-left">
 
           <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="#">Active</a></li>
-            <li>
+            <li class="uk-active"><a href="/">Inicio</a></li>
+            <!-- <li>
               <a href="#">Parent</a>
               <div class="uk-navbar-dropdown">
                 <ul class="uk-nav uk-navbar-dropdown-nav">
@@ -15,8 +15,8 @@
                   <li><a href="#">Item</a></li>
                 </ul>
               </div>
-            </li>
-            <li><a href="#">Item</a></li>
+            </li> -->
+            <li><a href="/tienda">Tienda</a></li>
           </ul>
 
         </div>
@@ -42,7 +42,7 @@ export default {
 
   },
   components: {
-    
+
   }
 }
 </script>

@@ -3,7 +3,6 @@
 @endpush
 
 @push('js')
-  {{-- <script src="{{ mix('js/site/pages/partials.js') }}"></script> --}}
   <script src="{{ mix('js/site/pages/product.js') }}"></script>
 @endpush
 
@@ -11,8 +10,6 @@
 
 @section('content')
 
-  {{-- <partials></partials> --}}
-
-  <product :prod="{{ $item->toJson() }}"></product>
+  <product :prod="{{ $product }}"></product>
 
 @endsection

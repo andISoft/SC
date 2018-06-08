@@ -78,12 +78,6 @@
       "price": 100
     },
     {
-      "slug": "producto05",
-      "name": "Producto 05",
-      "description": "Esta es una descripción del producto 05",
-      "price": 120
-    },
-    {
       "slug": "producto06",
       "name": "Producto 06",
       "description": "Esta es una descripción del producto 06",

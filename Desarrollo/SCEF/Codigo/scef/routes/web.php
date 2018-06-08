@@ -53,7 +53,7 @@ Route::group([
   // Route::get('contactanos', function () {
   //   return view('site.contactanos.index');
   // });
-  Route::get('shop', function() {
+  Route::get('tienda', function() {
     return view('site.shop.index');
   });
   Route::resource('producto','ProductController');
