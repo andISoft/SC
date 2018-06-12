@@ -19,8 +19,8 @@ class CartController extends Controller
   {
     $articles = collect();
     $articles['items'] = Cart::content();
-    $articles['subtotal'] = (int)Cart::subtotal();
-    $articles['total'] = (int)Cart::total();
+    $articles['subtotal'] = Cart::subtotal();
+    $articles['total'] = Cart::total();
     return view('site.cart.index', compact('articles'));
   }
 
@@ -121,5 +121,48 @@ class CartController extends Controller
   public function destroy($id)
   {
     //
+  }
+
+  public function updateRowId(Request $request, $rowId)
+  {
+    try {
+      Cart::update($rowId, $request['qty']);
+      $articles = collect();
+      $articles['items'] = Cart::content();
+      $articles['subtotal'] = Cart::subtotal();
+      $articles['total'] = Cart::total();
+      return response()->json([
+        'success' => true,
+        'message' => 'Actualizado exitosamente',
+        'articles' => $articles
+      ]);
+    } catch (\Exception $e) {
+      return response()->json([
+        'success' => false,
+        'message' => 'Fallo al actualizar'
+      ]);
+    }
+  }
+
+  public function deleteRowId(Request $request, $rowId)
+  {
+    try {
+      Cart::remove($rowId);
+      $articles = collect();
+      $articles['items'] = Cart::content();
+      $articles['subtotal'] = Cart::subtotal();
+      $articles['total'] = Cart::total();
+      return response()->json([
+        'success' => true,
+        'message' => 'Eliminado exitosamente',
+        'articles' => $articles
+      ]);
+    } catch (\Exception $e) {
+      return response()->json([
+        'success' => false,
+        'message' => 'Fallo al eliminar'
+      ]);
+    }
+
   }
 }

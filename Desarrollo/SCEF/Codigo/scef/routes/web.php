@@ -58,5 +58,7 @@ Route::group([
   });
   Route::resource('producto','ProductController');
   Route::resource('cart','CartController');
+  Route::post('/cart/{rowId}', 'CartController@updateRowId');
+  Route::post('/cartDelete/{rowId}', 'CartController@deleteRowId');
   Route::resource('checkout','CheckoutController');
 });

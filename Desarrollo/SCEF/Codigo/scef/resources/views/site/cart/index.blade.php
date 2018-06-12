@@ -10,7 +10,7 @@
 
 @section('content')
 
-  <cart :articles="{{ $articles->toJson() }}"></cart>
+  <cart :artcls="{{ $articles->toJson() }}"></cart>
 
 @endsection
 
