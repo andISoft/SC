@@ -5,11 +5,11 @@
     </div>
     <div class="uk-section uk-background-primary uk-light">
       <div class="uk-container">
-        <!-- <div class="uk-margin">
+        <div class="uk-margin">
           <div class="uk-width-1-3 uk-margin-auto">
             <img class="uk-width-1-1" src="/images/background.png" alt="">
           </div>
-        </div> -->
+        </div>
         <div class="uk-margin">
           <h1 class="uk-text-uppercase uk-text-center">Chagua Farma</h1>
         </div>
