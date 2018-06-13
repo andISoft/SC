@@ -5,7 +5,7 @@
     </div>
     <div class="uk-section">
       <div class="uk-container">
-        <div v-if="products.lenght" class="">
+        <div v-if="products.length !== 0" class="">
           <div class="">
             <table class="uk-table uk-table-hover uk-table-divider">
               <thead>
@@ -76,6 +76,7 @@ export default {
     }
   },
   mounted () {
+    
   },
   methods: {
     async payCulqi () {
