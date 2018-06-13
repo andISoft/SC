@@ -1,13 +1,15 @@
 <template>
   <div class="">
     <div class="uk-margin">
-      <div class="uk-child-width-1-3 uk-grid-small" uk-grid>
+      <div class="uk-child-width-1-3@s uk-width-1-1 uk-margin-auto" uk-grid>
         <div v-for="prod in items" class="">
           <div class="uk-card uk-card-default">
             <div>
               <div class="uk-card uk-card-default">
                 <div class="uk-card-media-top">
-                  <img class="uk-width-1-1" src="https://placeimg.com/250/250" alt="">
+                  <a :href="'/producto/'+prod.id" class="uk-text-center uk-link-reset">
+                    <img class="uk-width-1-1" src="https://placeimg.com/300/200" alt="">
+                  </a>
                 </div>
                 <div class="uk-padding-small">
                   <a :href="'/producto/'+prod.id" class="uk-text-center uk-link-reset">
@@ -33,44 +35,45 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        items: [],
-        currentPage: 1,
-        last_page: 0,
-        totalPages: 0,
-        pages: 0
-      }
-    },
-    mounted () {
-      this.readProducts()
-    },
-    methods: {
-      readProducts () {
-        axios.get('/api/products?page='+this.currentPage)
-        .then(response => {
-          this.items = response.data.data
-          this.totalPages = response.data.last_page
-          this.last_page = response.data.prev_page_url
-          this.pages = response.data.last_page
-        })
-        .catch(error => {
-          console.log(error)
-        })
-      },
-      selectPage (i) {
-        this.currentPage = i
-        this.readProducts()
-      }
-    },
-    computed: {
-
-    },
-    components: {
-
+export default {
+  data () {
+    return {
+      items: [],
+      currentPage: 1,
+      last_page: 0,
+      totalPages: 0,
+      pages: 0
     }
+  },
+  mounted () {
+    this.readProducts()
+  },
+  methods: {
+    readProducts () {
+      axios.get('/api/products?page='+this.currentPage)
+      .then(res => {
+        var response = res.data
+        this.items = response.data
+        this.totalPages = response.last_page
+        this.last_page = response.prev_page_url
+        this.pages = response.last_page
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    },
+    selectPage (i) {
+      this.currentPage = i
+      this.readProducts()
+    }
+  },
+  computed: {
+
+  },
+  components: {
+
   }
+}
 </script>
 
 <style lang="scss">
