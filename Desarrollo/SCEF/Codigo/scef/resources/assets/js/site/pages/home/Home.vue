@@ -49,7 +49,7 @@
                           </div>
                           <p class="uk-text-center">{{ prod.description }}</p>
                           <div class="uk-text-center">
-                            <a :href="'/product/'+prod.id" class="uk-button uk-button-primary">Ver producto</a>
+                            <a :href="'/producto/'+prod.id" class="uk-button uk-button-primary">Ver producto</a>
                           </div>
                         </div>
                       </div>
